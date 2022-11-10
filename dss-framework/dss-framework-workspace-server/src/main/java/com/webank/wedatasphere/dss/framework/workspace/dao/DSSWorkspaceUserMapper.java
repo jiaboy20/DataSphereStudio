@@ -57,7 +57,7 @@ public interface DSSWorkspaceUserMapper {
 
     @Select({
             "<script>",
-            "select distinct created_by as creator, username as username, create_time as joinTime,workspace_id as workspaceId " +
+            "select distinct id, created_by as creator, username as username, create_time as joinTime,workspace_id as workspaceId " +
                     "from dss_workspace_user_role where workspace_id = #{workspaceId} ",
             "<if test='username != null'>and username=#{username}</if> order by id desc",
             "</script>"

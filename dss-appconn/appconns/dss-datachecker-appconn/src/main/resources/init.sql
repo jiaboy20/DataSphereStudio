@@ -4,12 +4,12 @@ delete from `dss_appconn_instance` where `appconn_id` = @datachecker_appconnId;
 
 delete from dss_appconn where appconn_name = "datachecker";
 INSERT INTO `dss_appconn` (`appconn_name`, `is_user_need_init`, `level`, `if_iframe`, `is_external`, `reference`, `class_name`, `appconn_class_path`, `resource`)
-VALUES ('datachecker', 0, 1, 1, 1, NULL, 'com.webank.wedatasphere.dss.appconn.datachecker.DataCheckerAppConn', 'DSS_INSTALL_HOME_VAL/dss-appconns/datachecker', '');
+VALUES ('datachecker', 0, 1, 1, 1, NULL, 'com.webank.wedatasphere.dss.appconn.datachecker.DataCheckerAppConn', '/opt/dss/dss-appconns/datachecker', '');
 
 select @datachecker_appconnId:=id from `dss_appconn` where `appconn_name` = 'datachecker';
 
 INSERT INTO `dss_appconn_instance` (`appconn_id`, `label`, `url`, `enhance_json`, `homepage_uri`)
-VALUES (@datachecker_appconnId, 'DEV', 'datachecker', '{\"job.datachecker.jdo.option.name\":\"job\",\"job.datachecker.jdo.option.url\":\"DATACHECKER_JOB_JDBC_URL\",\"job.datachecker.jdo.option.username\":\"DATACHECKER_JOB_JDBC_USERNAME\",\"job.datachecker.jdo.option.password\":\"DATACHECKER_JOB_JDBC_PASSWORD\",\"bdp.datachecker.jdo.option.name\":\"bdp\",\"bdp.datachecker.jdo.option.url\":\"DATACHECKER_BDP_JDBC_URL\",\"bdp.datachecker.jdo.option.username\":\"DATACHECKER_BDP_JDBC_USERNAME\",\"bdp.datachecker.jdo.option.password\":\"DATACHECKER_BDP_JDBC_PASSWORD\",\"bdp.datachecker.jdo.option.login.type\":\"base64\",\"bdp.mask.url\":\"http://BDP_MASK_IP:BDP_MASK_PORT/api/v1/mask-status?\",\"bdp.mask.app.id\":\"wtss\",\"bdp.mask.app.token\":\"20a0ccdfc0\"}', '');
+VALUES (@datachecker_appconnId, 'DEV', 'datachecker', '{\"job.datachecker.jdo.option.name\":\"job\",\"job.datachecker.jdo.option.url\":\"jdbc:mysql://192.168.56.181:3306/metastore?useUnicode=true\",\"job.datachecker.jdo.option.username\":\"hive\",\"job.datachecker.jdo.option.password\":\"hive\",\"bdp.datachecker.jdo.option.name\":\"bdp\",\"bdp.datachecker.jdo.option.url\":\"jdbc:mysql://192.168.56.181:3306/metastore?useUnicode=true\",\"bdp.datachecker.jdo.option.username\":\"hive\",\"bdp.datachecker.jdo.option.password\":\"hive\",\"bdp.datachecker.jdo.option.login.type\":\"base64\",\"bdp.mask.url\":\"http://127.0.0.1:8087/api/v1/mask-status?\",\"bdp.mask.app.id\":\"wtss\",\"bdp.mask.app.token\":\"20a0ccdfc0\"}', '');
 
 delete from dss_workflow_node where appconn_name = "datachecker";
 insert into `dss_workflow_node` (`name`, `appconn_name`, `node_type`, `jump_type`, `support_jump`, `submit_to_scheduler`, `enable_copy`, `should_creation_before_node`, `icon_path`)

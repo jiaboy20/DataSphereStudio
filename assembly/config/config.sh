@@ -1,26 +1,26 @@
 ### deploy user
-deployUser=hadoop
+deployUser=root
 
 ## max memory for services
 SERVER_HEAP_SIZE="512M"
 
 ### The install home path of DSS，Must provided
-DSS_INSTALL_HOME=/appcom/Install/DSSInstall
+DSS_INSTALL_HOME=/opt/dss
 
 DSS_VERSION=1.1.0
 
 DSS_FILE_NAME="dss-$DSS_VERSION"
 
 ###  Linkis EUREKA  information.  # Microservices Service Registration Discovery Center
-EUREKA_INSTALL_IP=127.0.0.1
-EUREKA_PORT=20303
+EUREKA_INSTALL_IP=bigd-sit-linkis-mgr1
+EUREKA_PORT=8761
 ### If EUREKA  has safety verification, please fill in username and password
 #EUREKA_USERNAME=
 #EUREKA_PASSWORD=
 
 ### Linkis Gateway  information
-GATEWAY_INSTALL_IP=127.0.0.1
-GATEWAY_PORT=9001
+GATEWAY_INSTALL_IP=bigd-sit-linkis-gateway1
+GATEWAY_PORT=9111
 
 ################### The install Configuration of all Micro-Services #####################
 #
@@ -55,33 +55,33 @@ DSS_SCRIPTIS_SERVER_PORT=9008
 
 ###dss-data-api-server
 DSS_DATA_API_SERVER_INSTALL_IP=127.0.0.1
-DSS_DATA_API_SERVER_PORT=9208
+DSS_DATA_API_SERVER_PORT=9009
 ###dss-data-governance-server
 DSS_DATA_GOVERNANCE_SERVER_INSTALL_IP=127.0.0.1
-DSS_DATA_GOVERNANCE_SERVER_PORT=9209
+DSS_DATA_GOVERNANCE_SERVER_PORT=9010
 ###dss-guide-server
 DSS_GUIDE_SERVER_INSTALL_IP=127.0.0.1
-DSS_GUIDE_SERVER_PORT=9210
+DSS_GUIDE_SERVER_PORT=9011
 
 ############## ############## dss_appconn_instance configuration   start   ############## ##############
 ####eventchecker表的地址，一般就是dss数据库
-EVENTCHECKER_JDBC_URL="jdbc:mysql://$MYSQL_HOST:$MYSQL_PORT/$MYSQL_DB?characterEncoding=UTF-8"
-EVENTCHECKER_JDBC_USERNAME=$MYSQL_USER
-EVENTCHECKER_JDBC_PASSWORD=$MYSQL_PASSWORD
+EVENTCHECKER_JDBC_URL="jdbc:mysql://10.110.7.18:32660/dssdb?characterEncoding=UTF-8"
+EVENTCHECKER_JDBC_USERNAME=dss
+EVENTCHECKER_JDBC_PASSWORD=dss@1234
 
 #### hive地址
-DATACHECKER_JOB_JDBC_URL="jdbc:mysql://127.0.0.1:3306/hive_gz_bdap_test_01?useUnicode=true"
-DATACHECKER_JOB_JDBC_USERNAME=hadoop
-DATACHECKER_JOB_JDBC_PASSWORD=hadoop
+DATACHECKER_JOB_JDBC_URL="jdbc:mysql://192.168.56.181:3306/metastore?useUnicode=true"
+DATACHECKER_JOB_JDBC_USERNAME=hive
+DATACHECKER_JOB_JDBC_PASSWORD=hive
 #### 元数据库，可配置成和DATACHECKER_JOB的一致
-DATACHECKER_BDP_JDBC_URL="jdbc:mysql://127.0.0.1:3306/uat2_metastore?characterEncoding=UTF-8"
-DATACHECKER_BDP_JDBC_USERNAME=hadoop
-DATACHECKER_BDP_JDBC_PASSWORD=hadoop
+DATACHECKER_BDP_JDBC_URL="jdbc:mysql://192.168.56.181:3306/metastore?useUnicode=true"
+DATACHECKER_BDP_JDBC_USERNAME=hive
+DATACHECKER_BDP_JDBC_PASSWORD=hive
 
-EMAIL_HOST=smtp.163.com
+EMAIL_HOST=192.168.16.198
 EMAIL_PORT=25
-EMAIL_USERNAME=xxx@163.com
-EMAIL_PASSWORD=xxxxx
+EMAIL_USERNAME=daishuyun@focuschina.com
+EMAIL_PASSWORD=Daishuyun2020
 EMAIL_PROTOCOL=smtp
 ############## ############## dss_appconn_instance configuration   end   ############## ##############
 

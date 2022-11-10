@@ -25,12 +25,12 @@ delete from `dss_appconn_instance` where `appconn_id` = @eventchecker_appconnId;
 
 -- TODO 这里只适用于第一次安装时。如果是更新的话dss_appconn表不能先删除再插入，因为其他表如dss_workspace_appconn_role关联了appconn_id(不能变)，需要使用update、alter语句更新
 INSERT INTO `dss_appconn` (`appconn_name`, `is_user_need_init`, `level`, `if_iframe`, `is_external`, `reference`, `class_name`, `appconn_class_path`, `resource`)
-VALUES ('eventchecker', 0, 1, 1, 1, NULL, 'com.webank.wedatasphere.dss.appconn.eventchecker.EventCheckerAppConn', 'DSS_INSTALL_HOME_VAL/dss-appconns/eventchecker', '');
+VALUES ('eventchecker', 0, 1, 1, 1, NULL, 'com.webank.wedatasphere.dss.appconn.eventchecker.EventCheckerAppConn', '/opt/dss/dss-appconns/eventchecker', '');
 
 select @eventchecker_appconnId:=id from `dss_appconn` where `appconn_name` = 'eventchecker';
 
 INSERT INTO `dss_appconn_instance` (`appconn_id`, `label`, `url`, `enhance_json`, `homepage_uri`)
-VALUES (@eventchecker_appconnId, 'DEV', 'eventchecker', '{\"msg.eventchecker.jdo.option.name\": \"msg\",\"msg.eventchecker.jdo.option.url\": \"EVENTCHECKER_JDBC_URL\",\"msg.eventchecker.jdo.option.username\": \"EVENTCHECKER_JDBC_USERNAME\",\"msg.eventchecker.jdo.option.password\": \"EVENTCHECKER_JDBC_PASSWORD\"}', '');
+VALUES (@eventchecker_appconnId, 'DEV', 'eventchecker', '{\"msg.eventchecker.jdo.option.name\": \"msg\",\"msg.eventchecker.jdo.option.url\": \"jdbc:mysql://10.110.7.18:32660/dssdb?characterEncoding=UTF-8\",\"msg.eventchecker.jdo.option.username\": \"dss\",\"msg.eventchecker.jdo.option.password\": \"dss@1234\"}', '');
 
 delete from dss_workflow_node where name in ('eventsender', 'eventreceiver');
 insert into `dss_workflow_node` (`name`, `appconn_name`, `node_type`, `jump_type`, `support_jump`, `submit_to_scheduler`, `enable_copy`, `should_creation_before_node`, `icon_path`)

@@ -24,6 +24,7 @@ import com.webank.wedatasphere.dss.linkis.node.execution.job.CommonLinkisJob;
 import com.webank.wedatasphere.dss.linkis.node.execution.job.Job;
 import com.webank.wedatasphere.dss.linkis.node.execution.service.LinkisURLService;
 import com.webank.wedatasphere.dss.linkis.node.execution.utils.LinkisJobExecutionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.linkis.filesystem.WorkspaceClientFactory;
 import org.apache.linkis.filesystem.request.WorkspaceClient;
 import org.apache.linkis.filesystem.response.ScriptFromBMLResponse;
@@ -35,7 +36,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.commons.lang.StringUtils;
 
 
 public class CodeParser implements JobParser {

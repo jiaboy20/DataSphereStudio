@@ -265,6 +265,36 @@
 
     <fileSet>
       <directory>
+        ${basedir}/../../plugins/dolphinscheduler/dolphinscheduler-prod-metrics/target/
+      </directory>
+      <outputDirectory>lib/dss-plugins/dolphinscheduler/dolphinscheduler-prod-metrics/</outputDirectory>
+      <includes>
+        <include>*${dss.version}.jar</include>
+      </includes>
+    </fileSet>
+
+    <fileSet>
+      <directory>
+        ${basedir}/../../plugins/dolphinscheduler/dss-dolphinscheduler-client/target/
+      </directory>
+      <outputDirectory>lib/dss-plugins/dolphinscheduler/dss-dolphinscheduler-client/</outputDirectory>
+      <includes>
+        <include>*.zip</include>
+      </includes>
+    </fileSet>
+
+    <fileSet>
+      <directory>
+        ${basedir}/../../plugins/dolphinscheduler/dss-dolphinscheduler-token/target/
+      </directory>
+      <outputDirectory>lib/dss-plugins/dolphinscheduler/dss-dolphinscheduler-token/</outputDirectory>
+      <includes>
+        <include>*${dss.version}.jar</include>
+      </includes>
+    </fileSet>
+
+    <fileSet>
+      <directory>
         ${basedir}/../../plugins/azkaban/linkis-jobtype/target/
       </directory>
       <outputDirectory>lib/dss-plugins/azkaban/linkis-jobtype/</outputDirectory>

@@ -3,12 +3,12 @@ select @sendemail_appconnId:=id from `dss_appconn` where `appconn_name` = 'sende
 delete from `dss_appconn_instance` where `appconn_id` = @sendemail_appconnId;
 
 INSERT INTO `dss_appconn` (`appconn_name`, `is_user_need_init`, `level`, `if_iframe`, `is_external`, `reference`, `class_name`, `appconn_class_path`, `resource`)
-VALUES ('sendemail', 0, 1, 1, 1, NULL, 'com.webank.wedatasphere.dss.appconn.sendemail.SendEmailAppConn', 'DSS_INSTALL_HOME_VAL/dss-appconns/sendemail', '');
+VALUES ('sendemail', 0, 1, 1, 1, NULL, 'com.webank.wedatasphere.dss.appconn.sendemail.SendEmailAppConn', '/opt/dss/dss-appconns/sendemail', '');
 
 select @sendemail_appconnId:=id from `dss_appconn` where `appconn_name` = 'sendemail';
 
 INSERT INTO `dss_appconn_instance` (`appconn_id`, `label`, `url`, `enhance_json`, `homepage_uri`)
-VALUES (@sendemail_appconnId, 'DEV', 'sendemail', '{"email.host":"EMAIL_HOST","email.port":"EMAIL_PORT","email.username":"EMAIL_USERNAME","email.password":"EMAIL_PASSWORD","email.protocol":"EMAIL_PROTOCOL"}', '');
+VALUES (@sendemail_appconnId, 'DEV', 'sendemail', '{"email.host":"192.168.16.198","email.port":"25","email.username":"daishuyun@focuschina.com","email.password":"Daishuyun2020","email.protocol":"smtp"}', '');
 
 delete from dss_workflow_node where name = "sendemail";
 insert into `dss_workflow_node` (`name`, `appconn_name`, `node_type`, `jump_type`, `support_jump`, `submit_to_scheduler`, `enable_copy`, `should_creation_before_node`, `icon_path`)

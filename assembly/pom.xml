@@ -46,28 +46,28 @@
                 </executions>
             </plugin>
             <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <version>2.3</version>
-                    <executions>
-                        <execution>
-                            <id>dist</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>single</goal>
-                            </goals>
-                            <configuration>
-                                    <skipAssembly>false</skipAssembly>
-                                    <finalName>wedatasphere-dss-${dss.version}-dist</finalName>
-                                    <appendAssemblyId>false</appendAssemblyId>
-                                    <attach>false</attach>
-                                    <descriptors>
-                                        <descriptor>src/main/assembly/assembly.xml</descriptor>
-                                    </descriptors>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <id>dist</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                                <skipAssembly>false</skipAssembly>
+                                <finalName>wedatasphere-dss-${dss.version}-dist</finalName>
+                                <appendAssemblyId>false</appendAssemblyId>
+                                <attach>false</attach>
+                                <descriptors>
+                                    <descriptor>src/main/assembly/assembly.xml</descriptor>
+                                </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
          </plugins>
    </build>
 
