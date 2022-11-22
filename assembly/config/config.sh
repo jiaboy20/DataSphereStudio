@@ -19,7 +19,7 @@ EUREKA_PORT=8761
 #EUREKA_PASSWORD=
 
 ### Linkis Gateway  information
-GATEWAY_INSTALL_IP=bigd-sit-linkis-gateway1
+GATEWAY_INSTALL_IP=bigd-sit-linkis-mgr1
 GATEWAY_PORT=9111
 
 ################### The install Configuration of all Micro-Services #####################
