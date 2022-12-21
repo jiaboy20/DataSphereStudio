@@ -80,7 +80,7 @@
                 </executions>
                 <configuration>
                     <skipAssembly>false</skipAssembly>
-                    <finalName>dss-dolphinscheduler-client</finalName>
+                    <finalName>dss-dolphinscheduler-client-${project.version}</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                     <attach>false</attach>
                     <descriptorRefs>

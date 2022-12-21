@@ -7,7 +7,7 @@ SERVER_HEAP_SIZE="512M"
 ### The install home path of DSS，Must provided
 DSS_INSTALL_HOME=/opt/dss
 
-DSS_VERSION=1.1.0
+DSS_VERSION=1.1.1
 
 DSS_FILE_NAME="dss-$DSS_VERSION"
 
@@ -85,3 +85,7 @@ EMAIL_PASSWORD=Daishuyun2020
 EMAIL_PROTOCOL=smtp
 ############## ############## dss_appconn_instance configuration   end   ############## ##############
 
+############## ############## pinpoint configuration   start   ############## ##############
+export PINPOINT_AGENT_PATH=/opt/pinpoint-agent/pinpoint-bootstrap.jar
+export PP_APPLICATION_NAME=apache-linkis
+############## ############## pinpoint configuration   end   ############## ##############

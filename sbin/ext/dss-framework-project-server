@@ -30,15 +30,22 @@ then
   export SERVER_HEAP_SIZE="512M"
 fi
 
-DEBUG_PORT=
+DEBUG_PORT=5002
 if [ "$DEBUG_PORT" ];
 then
    export DEBUG_CMD="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=$DEBUG_PORT"
 fi
 
+if [ "$PINPOINT_AGENT_PATH" ];
+then
+  HOST_NAME="`hostname --fqdn`"
+  PP_AGENT_ID="${HOST_NAME##*-}-project"
+  export PP_AGENT_OPTS="-javaagent:$PINPOINT_AGENT_PATH -Dpinpoint.agentId=$PP_AGENT_ID -Dpinpoint.applicationName=$PP_APPLICATION_NAME"
+fi
+
 if test -z "$SERVER_JAVA_OPTS"
 then
-  export SERVER_JAVA_OPTS="-DserviceName=$SERVER_SUFFIX -Xmx$SERVER_HEAP_SIZE -XX:+UseG1GC -Xloggc:$SERVER_LOG_PATH/$SERVER_SUFFIX.gc $DEBUG_CMD"
+  export SERVER_JAVA_OPTS="$PP_AGENT_OPTS -DserviceName=$SERVER_SUFFIX -Xmx$SERVER_HEAP_SIZE -XX:+UseG1GC -Xloggc:$SERVER_LOG_PATH/$SERVER_SUFFIX.gc $DEBUG_CMD"
 fi
 
 export SERVER_CLASS=com.webank.wedatasphere.dss.framework.project.server.DSSProjectServerApplication
