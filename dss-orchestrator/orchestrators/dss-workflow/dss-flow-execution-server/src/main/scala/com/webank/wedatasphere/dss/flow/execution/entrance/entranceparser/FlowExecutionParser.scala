@@ -22,12 +22,7 @@ import org.apache.linkis.common.utils.Logging
 import org.apache.linkis.entrance.parser.CommonEntranceParser
 import org.apache.linkis.entrance.persistence.PersistenceManager
 import org.apache.linkis.governance.common.entity.job.JobRequest
-import org.apache.linkis.governance.common.entity.task.RequestPersistTask
-import org.apache.linkis.protocol.task.Task
 import org.apache.linkis.scheduler.queue.Job
-import org.springframework.stereotype.Component
-
-import scala.collection.JavaConversions._
 
 
 class FlowExecutionParser(persistenceManager: PersistenceManager) extends CommonEntranceParser(persistenceManager) with Logging {
@@ -37,7 +32,7 @@ class FlowExecutionParser(persistenceManager: PersistenceManager) extends Common
     job.setJobRequest(jobRequest)
     job.setUser(jobRequest.getExecuteUser)
     job.setCreator("FlowEntrance")
-    job.setParams(jobRequest.getParams.toMap[String, Any])
+    job.setParams(jobRequest.getParams)
     job.setEntranceListenerBus(getEntranceContext.getOrCreateEventListenerBus)
     job.setListenerEventBus(null)
     job.setProgress(0f)

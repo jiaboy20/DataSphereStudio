@@ -113,8 +113,9 @@ public class FlowEntranceRestfulApi extends EntranceRestfulApi {
         params.put("workspace", workspace);
         String label = ((Map<String, Object>) json.get(DSSCommonUtils.DSS_LABELS_KEY)).get("route").toString();
         params.put(DSSCommonUtils.DSS_LABELS_KEY, label);
-        String execID = entranceServer.execute(json);
-        Job job = entranceServer.getJob(execID).get();
+        Job job = entranceServer.execute(json);
+        String execID = job.getId();
+//        Job job = entranceServer.getJob(execID).get();
         JobRequest task = ((EntranceJob) job).getJobRequest();
         Long taskID = task.getId();
         pushLog(LogUtils.generateInfo("You have submitted a new job, script code (after variable substitution) is"), job);
@@ -133,7 +134,7 @@ public class FlowEntranceRestfulApi extends EntranceRestfulApi {
 
     @Override
     @RequestMapping(value = "/{id}/status",method = RequestMethod.GET)
-    public Message status(@PathVariable("id") String id, @RequestParam(required = false, name = "taskID") String taskID) {
+    public Message status(HttpServletRequest req, @PathVariable("id") String id, @RequestParam(required = false, name = "taskID") String taskID) {
         Message message = null;
         String realId = ZuulEntranceUtils.parseExecID(id)[3];
         Option<Job> job;
@@ -171,8 +172,9 @@ public class FlowEntranceRestfulApi extends EntranceRestfulApi {
         return message;
     }
 
+    @Override
     @RequestMapping(path = {"/{id}/kill"},method = {RequestMethod.GET})
-    public Message kill(@PathVariable("id") String id, @RequestParam(value = "taskID",required = false) Long taskID) {
+    public Message kill(HttpServletRequest req, @PathVariable("id") String id, @RequestParam(value = "taskID",required = false) Long taskID) {
         String realId = ZuulEntranceUtils.parseExecID(id)[3];
         Option job;
         try {
