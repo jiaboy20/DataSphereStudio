@@ -1,28 +1,33 @@
 ### deploy user
-deployUser=root
+deployUser=hadoop
 
 ## max memory for services
-SERVER_HEAP_SIZE="512M"
+SERVER_HEAP_SIZE=512M
 
 ### The install home path of DSS，Must provided
-DSS_INSTALL_HOME=/opt/dss
-export DSS_LOG_DIR=/var/log/dss
-DSS_VERSION=1.1.1
+LINKIS_DSS_HOME=/data/Install/dss_install
 
-DSS_FILE_NAME="dss-$DSS_VERSION"
+DSS_VERSION=1.1.2
 
-###  Linkis EUREKA  information.  # Microservices Service Registration Discovery Center
-EUREKA_INSTALL_IP=bigd-sit-linkis-mgr1
-EUREKA_PORT=8761
+DSS_FILE_NAME=dss-1.1.2
+
+DSS_WEB_PORT=8085
+
+###  Linkis EUREKA information.  # Microservices Service Registration Discovery Center
+EUREKA_INSTALL_IP=127.0.0.1
+EUREKA_PORT=20303
 ### If EUREKA  has safety verification, please fill in username and password
 #EUREKA_USERNAME=
 #EUREKA_PASSWORD=
 
-### Linkis Gateway  information
-GATEWAY_INSTALL_IP=bigd-sit-linkis-mgr1
-GATEWAY_PORT=9111
+### Linkis Gateway information
+GATEWAY_INSTALL_IP=127.0.0.1
+GATEWAY_PORT=9001
 
-################### The install Configuration of all Micro-Services #####################
+### Linkis BML Token
+BML_AUTH=BML-AUTH
+
+################### The install Configuration of all Micro-Services start #####################
 #
 #    NOTICE:
 #       1. If you just wanna try, the following micro-service configuration can be set without any settings.
@@ -33,59 +38,35 @@ GATEWAY_PORT=9111
 
 ### DSS_SERVER
 ### This service is used to provide dss-server capability.
+### dss-server
+DSS_SERVER_INSTALL_IP=127.0.0.1
+DSS_SERVER_PORT=9043
 
-### project-server
-DSS_FRAMEWORK_PROJECT_SERVER_INSTALL_IP=127.0.0.1
-DSS_FRAMEWORK_PROJECT_SERVER_PORT=9002
-### orchestrator-server
-DSS_FRAMEWORK_ORCHESTRATOR_SERVER_INSTALL_IP=127.0.0.1
-DSS_FRAMEWORK_ORCHESTRATOR_SERVER_PORT=9003
-### apiservice-server
-DSS_APISERVICE_SERVER_INSTALL_IP=127.0.0.1
-DSS_APISERVICE_SERVER_PORT=9004
-### dss-workflow-server
-DSS_WORKFLOW_SERVER_INSTALL_IP=127.0.0.1
-DSS_WORKFLOW_SERVER_PORT=9005
-### dss-flow-execution-server
-DSS_FLOW_EXECUTION_SERVER_INSTALL_IP=127.0.0.1
-DSS_FLOW_EXECUTION_SERVER_PORT=9006
-###dss-scriptis-server
-DSS_SCRIPTIS_SERVER_INSTALL_IP=127.0.0.1
-DSS_SCRIPTIS_SERVER_PORT=9008
+### dss-apps-server
+DSS_APPS_SERVER_INSTALL_IP=127.0.0.1
+DSS_APPS_SERVER_PORT=9044
+################### The install Configuration of all Micro-Services end #####################
 
-###dss-data-api-server
-DSS_DATA_API_SERVER_INSTALL_IP=127.0.0.1
-DSS_DATA_API_SERVER_PORT=9009
-###dss-data-governance-server
-DSS_DATA_GOVERNANCE_SERVER_INSTALL_IP=127.0.0.1
-DSS_DATA_GOVERNANCE_SERVER_PORT=9010
-###dss-guide-server
-DSS_GUIDE_SERVER_INSTALL_IP=127.0.0.1
-DSS_GUIDE_SERVER_PORT=9011
 
-############## ############## dss_appconn_instance configuration   start   ############## ##############
+############## ############## dss_appconn_instance configuration start ############## ##############
 ####eventchecker表的地址，一般就是dss数据库
-EVENTCHECKER_JDBC_URL="jdbc:mysql://10.110.7.18:32660/dssdb?characterEncoding=UTF-8"
-EVENTCHECKER_JDBC_USERNAME=dss
-EVENTCHECKER_JDBC_PASSWORD=dss@1234
+EVENTCHECKER_JDBC_URL=jdbc:mysql://172.16.16.16:3305/linkis_kinghao?characterEncoding=UTF-8
+EVENTCHECKER_JDBC_USERNAME=linkis
+EVENTCHECKER_JDBC_PASSWORD=linkis@Wds
 
 #### hive地址
-DATACHECKER_JOB_JDBC_URL="jdbc:mysql://192.168.56.181:3306/metastore?useUnicode=true"
-DATACHECKER_JOB_JDBC_USERNAME=hive
-DATACHECKER_JOB_JDBC_PASSWORD=hive
+DATACHECKER_JOB_JDBC_URL=jdbc:mysql://172.16.16.10:3306/hivemeta?useUnicode=true
+DATACHECKER_JOB_JDBC_USERNAME=hivemeta
+DATACHECKER_JOB_JDBC_PASSWORD=Linkishivemeta@123
 #### 元数据库，可配置成和DATACHECKER_JOB的一致
-DATACHECKER_BDP_JDBC_URL="jdbc:mysql://192.168.56.181:3306/metastore?useUnicode=true"
-DATACHECKER_BDP_JDBC_USERNAME=hive
-DATACHECKER_BDP_JDBC_PASSWORD=hive
+DATACHECKER_BDP_JDBC_URL=jdbc:mysql://172.16.16.10:3306/hivemeta?useUnicode=true
+DATACHECKER_BDP_JDBC_USERNAME=hivemeta
+DATACHECKER_BDP_JDBC_PASSWORD=Linkishivemeta@123
 
-EMAIL_HOST=192.168.16.198
+### 邮件节点配置
+EMAIL_HOST=smtp.163.com
 EMAIL_PORT=25
-EMAIL_USERNAME=daishuyun@focuschina.com
-EMAIL_PASSWORD=Daishuyun2020
+EMAIL_USERNAME=xxx@163.com
+EMAIL_PASSWORD=xxxxx
 EMAIL_PROTOCOL=smtp
-############## ############## dss_appconn_instance configuration   end   ############## ##############
-
-############## ############## pinpoint configuration   start   ############## ##############
-export PINPOINT_AGENT_PATH=/opt/pinpoint-agent/pinpoint-bootstrap.jar
-export PP_APPLICATION_NAME=dss-studio
-############## ############## pinpoint configuration   end   ############## ##############
+############## ############## dss_appconn_instance configuration end ############## ##############

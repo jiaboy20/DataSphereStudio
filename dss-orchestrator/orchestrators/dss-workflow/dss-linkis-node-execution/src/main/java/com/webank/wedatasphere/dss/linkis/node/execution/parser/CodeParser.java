@@ -24,7 +24,6 @@ import com.webank.wedatasphere.dss.linkis.node.execution.job.CommonLinkisJob;
 import com.webank.wedatasphere.dss.linkis.node.execution.job.Job;
 import com.webank.wedatasphere.dss.linkis.node.execution.service.LinkisURLService;
 import com.webank.wedatasphere.dss.linkis.node.execution.utils.LinkisJobExecutionUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.linkis.filesystem.WorkspaceClientFactory;
 import org.apache.linkis.filesystem.request.WorkspaceClient;
 import org.apache.linkis.filesystem.response.ScriptFromBMLResponse;
@@ -36,13 +35,14 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.commons.lang3.StringUtils;
 
 
 public class CodeParser implements JobParser {
 
     private static final Pattern pb = Pattern.compile("((project)|(flow)|(node))://[^\\s\"]+[$\\s]{0,1}", Pattern.CASE_INSENSITIVE);
-    private  WorkspaceClient client1X = null;
-    private  WorkspaceClient client0X = null;
+    private volatile WorkspaceClient client1X = null;
+    private volatile WorkspaceClient client0X = null;
     private final Object clientLocker = new Object();
     @Override
     public void parseJob(Job job) throws Exception{

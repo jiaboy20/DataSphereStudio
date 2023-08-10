@@ -91,11 +91,6 @@ public class WorkflowPersistenceEngine extends AbstractPersistenceEngine {
     }
 
 
-//    @Override
-//    public void persist(SubJobInfo subjobInfo) throws ErrorException {
-//
-//    }
-
     //    @Override
 //    public Task retrieve(Long taskID)throws EntranceIllegalParamException, QueryFailedException, EntranceRPCException {
 //
@@ -159,11 +154,6 @@ public class WorkflowPersistenceEngine extends AbstractPersistenceEngine {
 
     }
 
-//    @Override
-//    public void updateIfNeeded(SubJobInfo subJobInfo) throws ErrorException {
-//
-//    }
-
     @Override
     public Task[] readAll(String instance) throws EntranceIllegalParamException, EntranceRPCException, QueryFailedException {
 
@@ -210,10 +200,6 @@ public class WorkflowPersistenceEngine extends AbstractPersistenceEngine {
         return null;
     }
 
-//    @Override
-//    public SubJobDetail retrieveJobDetailReq(Long jobDetailId) throws ErrorException {
-//        return null;
-//    }
 
     @Override
     public void close() throws IOException {
