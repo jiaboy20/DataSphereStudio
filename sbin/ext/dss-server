@@ -33,7 +33,7 @@ then
   export SERVER_HEAP_SIZE="6G"
 fi
 
-DEBUG_PORT=5008
+DEBUG_PORT=5043
 if [ "$DEBUG_PORT" ];
 then
    export DEBUG_CMD="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=$DEBUG_PORT"
