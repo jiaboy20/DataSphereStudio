@@ -2,10 +2,10 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:20303/eureka/
-  #instance:
-    #prefer-ip-address: true
-    #instance-id: ${spring.cloud.client.ip-address}:${server.port}
+      defaultZone: http://10.110.3.206:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
     #metadata-map:
       #test: wedatasphere
 
@@ -17,7 +17,7 @@ management:
 logging:
   config: classpath:log4j2.xml
 
-#mybatis:
-#  configuration:
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 

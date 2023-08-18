@@ -40,37 +40,37 @@
             <version>${linkis.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <artifactId>linkis-bml-client</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>gson</artifactId>
-                    <groupId>com.google.code.gson</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>linkis-common</artifactId>
-                    <groupId>org.apache.linkis</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>commons-beanutils</artifactId>
-                    <groupId>commons-beanutils</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>commons-collections</artifactId>
-                    <groupId>commons-collections</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>commons-logging</artifactId>
-                    <groupId>commons-logging</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>json4s-jackson_2.11</artifactId>
-                    <groupId>org.json4s</groupId>
-                </exclusion>
-            </exclusions>
-            <groupId>org.apache.linkis</groupId>
-            <version>${linkis.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <artifactId>linkis-bml-client</artifactId>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>gson</artifactId>-->
+<!--                    <groupId>com.google.code.gson</groupId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>linkis-common</artifactId>-->
+<!--                    <groupId>org.apache.linkis</groupId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>commons-beanutils</artifactId>-->
+<!--                    <groupId>commons-beanutils</groupId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>commons-collections</artifactId>-->
+<!--                    <groupId>commons-collections</groupId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>commons-logging</artifactId>-->
+<!--                    <groupId>commons-logging</groupId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>json4s-jackson_2.11</artifactId>-->
+<!--                    <groupId>org.json4s</groupId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--            <groupId>org.apache.linkis</groupId>-->
+<!--            <version>${linkis.version}</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.apache.linkis</groupId>

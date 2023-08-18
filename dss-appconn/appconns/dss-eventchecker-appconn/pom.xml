@@ -74,22 +74,22 @@
             <version>1.0.28</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.linkis</groupId>
-            <artifactId>linkis-cs-client</artifactId>
-            <version>${linkis.version}</version>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <artifactId>linkis-common</artifactId>
-                    <groupId>org.apache.linkis</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>json4s-jackson_2.11</artifactId>
-                    <groupId>org.json4s</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.linkis</groupId>-->
+<!--            <artifactId>linkis-pes-client</artifactId>-->
+<!--            <version>${linkis.version}</version>-->
+<!--            <scope>provided</scope>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>linkis-common</artifactId>-->
+<!--                    <groupId>org.apache.linkis</groupId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>json4s-jackson_2.11</artifactId>-->
+<!--                    <groupId>org.json4s</groupId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.apache.linkis</groupId>

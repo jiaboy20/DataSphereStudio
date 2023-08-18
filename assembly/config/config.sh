@@ -1,12 +1,12 @@
 ### deploy user
-deployUser=hadoop
+deployUser=root
 
 ## max memory for services
 SERVER_HEAP_SIZE=512M
 
 ### The install home path of DSS，Must provided
-LINKIS_DSS_HOME=/data/Install/dss_install
-
+LINKIS_DSS_HOME=/opt/dss
+export DSS_LOG_DIR=/var/log/dss
 DSS_VERSION=1.1.2
 
 DSS_FILE_NAME=dss-1.1.2
@@ -14,15 +14,15 @@ DSS_FILE_NAME=dss-1.1.2
 DSS_WEB_PORT=8085
 
 ###  Linkis EUREKA information.  # Microservices Service Registration Discovery Center
-EUREKA_INSTALL_IP=127.0.0.1
-EUREKA_PORT=20303
+EUREKA_INSTALL_IP=10.110.3.206
+EUREKA_PORT=8761
 ### If EUREKA  has safety verification, please fill in username and password
 #EUREKA_USERNAME=
 #EUREKA_PASSWORD=
 
 ### Linkis Gateway information
-GATEWAY_INSTALL_IP=127.0.0.1
-GATEWAY_PORT=9001
+GATEWAY_INSTALL_IP=10.110.3.206
+GATEWAY_PORT=9111
 
 ### Linkis BML Token
 BML_AUTH=BML-AUTH

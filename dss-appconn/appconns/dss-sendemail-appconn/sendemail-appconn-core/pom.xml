@@ -59,10 +59,10 @@
                     <groupId>org.apache.linkis</groupId>
                     <artifactId>linkis-mybatis</artifactId>
                 </exclusion>
-                <exclusion>
-                    <groupId>org.apache.linkis</groupId>
-                    <artifactId>linkis-cs-common</artifactId>
-                </exclusion>
+<!--                <exclusion>-->
+<!--                    <groupId>org.apache.linkis</groupId>-->
+<!--                    <artifactId>linkis-cs-common</artifactId>-->
+<!--                </exclusion>-->
                 <exclusion>
                     <groupId>org.apache.linkis</groupId>
                     <artifactId>linkis-gateway-authentication</artifactId>
@@ -144,12 +144,12 @@
             <version>1.4</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.linkis</groupId>
-            <artifactId>linkis-cs-client</artifactId>
-            <version>${linkis.version}</version>
-            <scope>provided</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.linkis</groupId>-->
+<!--            <artifactId>linkis-cs-client</artifactId>-->
+<!--            <version>${linkis.version}</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>

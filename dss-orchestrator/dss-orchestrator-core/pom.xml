@@ -40,17 +40,17 @@
             <version>${dss.version}</version>
         </dependency>
 
-        <dependency>
-            <artifactId>linkis-bml-client</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>gson</artifactId>
-                    <groupId>com.google.code.gson</groupId>
-                </exclusion>
-            </exclusions>
-            <groupId>org.apache.linkis</groupId>
-            <version>${linkis.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <artifactId>linkis-bml-client</artifactId>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>gson</artifactId>-->
+<!--                    <groupId>com.google.code.gson</groupId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--            <groupId>org.apache.linkis</groupId>-->
+<!--            <version>${linkis.version}</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.webank.wedatasphere.dss</groupId>

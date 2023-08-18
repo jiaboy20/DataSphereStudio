@@ -34,11 +34,11 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.linkis</groupId>
-            <artifactId>linkis-cs-client</artifactId>
-            <version>${linkis.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.linkis</groupId>-->
+<!--            <artifactId>linkis-pes-client</artifactId>-->
+<!--            <version>${linkis.version}</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.webank.wedatasphere.dss</groupId>
             <artifactId>dss-common</artifactId>

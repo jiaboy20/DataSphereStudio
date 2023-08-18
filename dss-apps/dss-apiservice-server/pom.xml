@@ -106,25 +106,25 @@
             </exclusions>
         </dependency>
         <!--bml client-->
-        <dependency>
-            <groupId>org.apache.linkis</groupId>
-            <artifactId>linkis-bml-client</artifactId>
-            <version>${linkis.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>commons-beanutils</artifactId>
-                    <groupId>commons-beanutils</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>linkis-common</artifactId>
-                    <groupId>org.apache.linkis</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>json4s-jackson_2.11</artifactId>
-                    <groupId>org.json4s</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.linkis</groupId>-->
+<!--            <artifactId>linkis-bml-client</artifactId>-->
+<!--            <version>${linkis.version}</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>commons-beanutils</artifactId>-->
+<!--                    <groupId>commons-beanutils</groupId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>linkis-common</artifactId>-->
+<!--                    <groupId>org.apache.linkis</groupId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>json4s-jackson_2.11</artifactId>-->
+<!--                    <groupId>org.json4s</groupId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.apache.linkis</groupId>
             <artifactId>linkis-computation-client</artifactId>

@@ -58,25 +58,25 @@
             </exclusions>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>org.apache.linkis</groupId>
-            <artifactId>linkis-cs-common</artifactId>
-            <version>${linkis.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <artifactId>linkis-bml-client</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>gson</artifactId>
-                    <groupId>com.google.code.gson</groupId>
-                </exclusion>
-            </exclusions>
-            <groupId>org.apache.linkis</groupId>
-            <version>${linkis.version}</version>
-            <scope>provided</scope>
-            <optional>true</optional>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.linkis</groupId>-->
+<!--            <artifactId>linkis-cs-common</artifactId>-->
+<!--            <version>${linkis.version}</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <artifactId>linkis-bml-client</artifactId>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>gson</artifactId>-->
+<!--                    <groupId>com.google.code.gson</groupId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--            <groupId>org.apache.linkis</groupId>-->
+<!--            <version>${linkis.version}</version>-->
+<!--            <scope>provided</scope>-->
+<!--            <optional>true</optional>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.apache.linkis</groupId>
