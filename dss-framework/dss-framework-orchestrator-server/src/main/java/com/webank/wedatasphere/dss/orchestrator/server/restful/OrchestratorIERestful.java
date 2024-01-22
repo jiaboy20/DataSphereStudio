@@ -39,9 +39,9 @@ import com.webank.wedatasphere.dss.standard.app.sso.Workspace;
 import com.webank.wedatasphere.dss.standard.sso.utils.SSOHelper;
 import org.apache.commons.io.IOUtils;
 import org.apache.linkis.common.io.FsPath;
-import org.apache.linkis.filesystem.service.FsService;
 import org.apache.linkis.server.Message;
 import org.apache.linkis.server.security.SecurityFilter;
+import org.apache.linkis.storage.FSFactory;
 import org.apache.linkis.storage.fs.FileSystem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -68,8 +68,10 @@ public class OrchestratorIERestful {
     @Autowired
     @Qualifier("orchestratorBmlService")
     private BMLService bmlService;
-    @Autowired
-    private FsService fsService;
+    // delete by jiangkun0928 for linkis-1.5.0 on 20240119 start
+//    @Autowired
+//    private FsService fsService;
+    // delete by jiangkun0928 for linkis-1.5.0 on 20240119 end
     @Autowired
     OrchestratorService orchestratorService;
     @Autowired
@@ -100,7 +102,11 @@ public class OrchestratorIERestful {
             logger.info("User {} begin to import orchestrator file", userName);
         } else {
             FsPath fsPath = new FsPath(packageUri);
-            FileSystem fileSystem = fsService.getFileSystem(userName, fsPath);
+            // modify by jiangkun0928 for linkis-1.5.0 on 20240119 start
+//            FileSystem fileSystem = fsService.getFileSystem(userName, fsPath);
+            FileSystem fileSystem = (FileSystem) FSFactory.getFsByProxyUser(fsPath, userName);
+            fileSystem.init(null);
+            // modify by jiangkun0928 for linkis-1.5.0 on 20240119 end
             if ( !fileSystem.exists(fsPath) ) {
                 throw new DSSRuntimeException("路径上不存在文件！");
             }
