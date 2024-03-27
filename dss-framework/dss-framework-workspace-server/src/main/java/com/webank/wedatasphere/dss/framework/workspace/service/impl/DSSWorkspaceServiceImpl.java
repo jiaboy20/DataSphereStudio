@@ -48,6 +48,7 @@ import com.webank.wedatasphere.dss.standard.app.sso.Workspace;
 import com.webank.wedatasphere.dss.standard.app.sso.builder.SSOUrlBuilderOperation;
 import com.webank.wedatasphere.dss.standard.common.desc.AppInstance;
 import com.webank.wedatasphere.dss.standard.sso.utils.SSOHelper;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.linkis.common.exception.ErrorException;
@@ -434,7 +435,17 @@ public class DSSWorkspaceServiceImpl implements DSSWorkspaceService {
         List<String> roles = dssWorkspaceRoleService.getRoleInWorkspace(username, workspaceId);
         return roles.stream().anyMatch(role -> role.equalsIgnoreCase("admin"));
     }
-
+    // add by jiangkun0928 for fide_V1.5.1 on 20240325 start
+    @Override
+    public List<DSSWorkspaceUserVO> getWorkspaceUserList(String workspaceId, List<Integer> totals) {
+        List<DSSWorkspaceUser> workspaceUsers = dssWorkspaceUserMapper.getWorkspaceUserList(workspaceId);
+        totals.add(CollectionUtils.size(workspaceUsers));
+        return workspaceUsers.stream().map(
+                        workspaceUser -> changeToUserVO(workspaceUser,
+                                Arrays.stream(workspaceUser.getRoleIds().split(",")).map(Integer::valueOf).collect(Collectors.toList())))
+                .collect(Collectors.toList());
+    }
+    // add by jiangkun0928 for fide_V1.5.1 on 20240325 end
     @Override
     public List<String> getAllDepartmentWithOffices() {
         List<String> allDepartments = staffInfoGetter.getAllDepartments();

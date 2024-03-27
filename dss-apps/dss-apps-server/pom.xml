@@ -29,6 +29,44 @@
     <artifactId>dss-apps-server</artifactId>
 
     <dependencies>
+        <!-- add by jiangkun0928 for DEBUG on 20240325 start -->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.linkis</groupId>-->
+<!--            <artifactId>linkis-rpc</artifactId>-->
+<!--            <version>${linkis.version}</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.linkis</groupId>-->
+<!--            <artifactId>linkis-mybatis</artifactId>-->
+<!--            <version>${linkis.version}</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.linkis</groupId>-->
+<!--            <artifactId>linkis-storage</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <version>${spring.cloud.version}</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.webank.wedatasphere.dss</groupId>-->
+<!--            <artifactId>dss-sender-service</artifactId>-->
+<!--            <version>${dss.version}</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.squareup.okio</groupId>-->
+<!--            <artifactId>okio</artifactId>-->
+<!--            <version>2.2.2</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+        <!-- add by jiangkun0928 for DEBUG on 20240325 end -->
         <dependency>
             <groupId>org.apache.linkis</groupId>
             <artifactId>linkis-module</artifactId>

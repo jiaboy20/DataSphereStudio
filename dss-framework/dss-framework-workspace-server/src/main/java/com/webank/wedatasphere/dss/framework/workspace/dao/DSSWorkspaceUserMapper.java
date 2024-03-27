@@ -96,4 +96,15 @@ public interface DSSWorkspaceUserMapper {
 
     @Delete("delete from dss_proxy_user where username = #{username} ")
     void deleteProxyUserByUserName(@Param("username") String username);
+
+    // add by jiangkun0928 for fide_V1.5.1 on 20240325 start
+    @Select({
+            "<script>",
+            "select username as username, workspace_id as workspaceId, group_concat(role_id) as roleIds " +
+                    "from dss_workspace_user_role where workspace_id = #{workspaceId} group by username,workspace_id " +
+                    "order by username",
+            "</script>"
+    })
+    List<DSSWorkspaceUser> getWorkspaceUserList(String workspaceId);
+    // add by jiangkun0928 for fide_V1.5.1 on 20240325 end
 }

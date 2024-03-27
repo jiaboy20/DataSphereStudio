@@ -109,4 +109,7 @@ public interface DSSWorkspaceService {
 
     boolean checkAdminByWorkspace(String username, int workspaceId);
 
+    // add by jiangkun0928 for fide_V1.5.1 on 20240325 start
+    List<DSSWorkspaceUserVO> getWorkspaceUserList(String workspaceId, List<Integer> totals);
+    // add by jiangkun0928 for fide_V1.5.1 on 20240325 end
 }

@@ -21,6 +21,7 @@ package com.webank.wedatasphere.dss.common.utils;
 import com.webank.wedatasphere.dss.common.exception.DSSErrorException;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.linkis.common.io.FsPath;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -63,7 +64,15 @@ public class ZipHelper {
             throw new DSSErrorException(90001,dirPath + " does not exist, can not zip");
         }
         //先用简单的方法，调用新进程进行压缩
-        String[] strArr = dirPath.split(File.separator);
+        // modify by jiangkun0928 for DEBUG on 20240325 start
+//        String[] strArr = dirPath.split(File.separator);
+        String[] strArr = null;
+        if (FsPath.WINDOWS) {
+            strArr = dirPath.split("\\" + File.separator);
+        } else {
+            strArr = dirPath.split(File.separator);
+        }
+        // modify by jiangkun0928 for DEBUG on 20240325 end
         String shortPath = strArr[strArr.length - 1];
         String workPath = dirPath.substring(0, dirPath.length() - shortPath.length() - 1);
         List<String> list = new ArrayList<>();

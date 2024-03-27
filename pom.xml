@@ -43,7 +43,7 @@
         <linkis.version>1.5.0</linkis.version>
         <scala.version>2.12.17</scala.version>
         <jdk.compile.version>1.8</jdk.compile.version>
-        <maven.version>3.3.3</maven.version>
+        <maven.version>3.8.6</maven.version>
         <gson.version>2.8.5</gson.version>
         <jackson-bom.version>2.13.4.20221013</jackson-bom.version>
         <math3.version>3.6.1</math3.version>
@@ -54,7 +54,7 @@
         <spring-framework.version>5.2.23.RELEASE</spring-framework.version>
         <mybatis.spring.boot.version>2.1.2</mybatis.spring.boot.version>
         <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
-        <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
+        <spring.cloud.version>2.2.6.RELEASE</spring.cloud.version>
         <commons.math.version>3.1.1</commons.math.version>
         <commons.lang3.version>3.12.0</commons.lang3.version>
         <commons.lang.version>2.6</commons.lang.version>

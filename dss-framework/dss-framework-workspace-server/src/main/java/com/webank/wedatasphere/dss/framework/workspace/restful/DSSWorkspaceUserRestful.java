@@ -94,6 +94,17 @@ public class DSSWorkspaceUserRestful {
         return Message.ok().data("roles", dssRoles).data("workspaceUsers", workspaceUsers).data("total", totals.get(0));
     }
 
+    // add by jiangkun0928 for fide_V1.5.1 on 20240325 start
+    @RequestMapping(path = "listWorkspaceUsers", method = RequestMethod.GET)
+    public Message getWorkspaceUserList( @RequestParam(WORKSPACE_ID_STR) String workspaceId) {
+        List<Integer> totals = new ArrayList<>();
+        List<DSSWorkspaceUserVO> workspaceUsers =
+                dssWorkspaceService.getWorkspaceUserList(workspaceId, totals);
+        List<DSSWorkspaceRoleVO> dssRoles = workspaceDBHelper.getRoleVOs(Integer.parseInt(workspaceId));
+        return Message.ok().data("roles", dssRoles).data("workspaceUsers", workspaceUsers).data("total", totals.get(0));
+    }
+    // add by jiangkun0928 for fide_V1.5.1 on 20240325 end
+
     @RequestMapping(path = "getAllWorkspaceUsers", method = RequestMethod.GET)
     public Message getAllWorkspaceUsers() {
         DSSWorkspaceUsersVo dssWorkspaceUsersVo = new DSSWorkspaceUsersVo();
